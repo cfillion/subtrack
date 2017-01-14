@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+Signal.trap('INT') { abort }
+
+require 'subtrack'
+
+Subtrack::CLI.new.run
