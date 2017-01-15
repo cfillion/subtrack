@@ -8,6 +8,8 @@ class Subtrack::CLI
 
     program :help_formatter, :compact
 
+    global_option '--datadir DIRECTORY', 'Where to store internal data'
+
     command :switch do |c|
       c.syntax = 'switch NAME'
       c.description = 'Switch to a task (stopping active tasks in the parent level)'
@@ -37,6 +39,9 @@ class Subtrack::CLI
     end
 
     default_command :switch
+    always_trace!
     run!
+  rescue OptionParser::ParseError => e
+    warn "error: #{e}"
   end
 end

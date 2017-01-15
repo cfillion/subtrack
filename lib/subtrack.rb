@@ -1,11 +1,12 @@
 require 'commander'
 
 class Subtrack
-  %w{cli gem}.each {|file|
+  %w{cli gem task_list task errors}.each {|file|
     require "subtrack/#{file}"
   }
 
   def initialize(datadir)
+    puts "inside #{datadir.inspect}"
   end
 
   def switch(name)
